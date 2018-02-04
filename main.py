@@ -71,7 +71,8 @@ if __name__ == '__main__':
 
         try:
 
-            if key.char == 'c' and prev_key == keyboard.Key.shift_l and prev_prev_key == keyboard.Key.ctrl_l:
+            if key.char == 'c' and prev_key == keyboard.Key.shift_l \
+                    and (prev_prev_key == keyboard.Key.ctrl_l or prev_prev_key == keyboard.Key.cmd_l):
                 return False
 
             pattern = re.compile('\w')
@@ -91,7 +92,7 @@ if __name__ == '__main__':
                 typed_chars = []
 
             if key == keyboard.Key.backspace \
-                    and (not prev_prev_key == keyboard.Key.ctrl_l) \
+                    and (not (prev_prev_key == keyboard.Key.ctrl_l or prev_prev_key == keyboard.Key.cmd_l)) \
                     and len(typed_chars) > 0:
                 typed_chars.pop()
 
@@ -99,7 +100,8 @@ if __name__ == '__main__':
                 if check():
                     assist()
 
-            if key == keyboard.Key.backspace and prev_prev_key == keyboard.Key.ctrl_l:
+            if key == keyboard.Key.backspace \
+                    and (prev_prev_key == keyboard.Key.ctrl_l or prev_prev_key == keyboard.Key.cmd_l):
                 if hasattr(prev_key, 'char'):
                     if prev_key.char == '\x01':
                         typed_chars = []

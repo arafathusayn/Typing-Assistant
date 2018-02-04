@@ -25,4 +25,4 @@ Remember, key must be alphanumeric `a-z, A-Z, 0-9`.
 
 # Exit
 
-To stop the program gracefully, you have to press in sequence: `Left Ctrl` + `Left Shift` + `C`.
+To stop the program gracefully, you have to press in sequence: `Left Ctrl` + `Left Shift` + `C` (Windows/Linux) or `Left Cmd` + `Left Shift` + `C` (MacOS).
