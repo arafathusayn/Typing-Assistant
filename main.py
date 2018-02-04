@@ -59,13 +59,6 @@ if __name__ == '__main__':
         typed_chars = []
         is_record = True
 
-    def on_release(key):
-        try:
-            key.char
-        except AttributeError:
-            if key == keyboard.Key.esc:
-                return False
-
     def on_press(key):
 
         global is_record
@@ -76,12 +69,10 @@ if __name__ == '__main__':
         if not is_record:
             return True
 
-        if prev_key == keyboard.Key.ctrl_l:
-            if hasattr(key, 'char'):
-                if key.char == 'c':
-                    return False
-
         try:
+
+            if key.char == 'c' and prev_key == keyboard.Key.shift_l and prev_prev_key == keyboard.Key.ctrl_l:
+                return False
 
             pattern = re.compile('\w')
             is_ok = pattern.match(key.char)
@@ -118,8 +109,5 @@ if __name__ == '__main__':
             prev_key = key
 
 
-    with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-        try:
-            listener.join()
-        except KeyboardInterrupt:
-            quit(0)
+    with keyboard.Listener(on_press=on_press) as listener:
+        listener.join()
