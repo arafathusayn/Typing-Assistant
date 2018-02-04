@@ -20,4 +20,9 @@ You need python and pip pre-installed obviously.
 
 # Save
 
-Open `data.db` file with any SQLite viewer or driver and add new rows to `snippet` table. Remember, key must be alphanumeric `a-z, A-Z, 0-9`
+Open `data.db` file with any SQLite viewer or driver and add new rows to `snippet` table.
+Remember, key must be alphanumeric `a-z, A-Z, 0-9`.
+
+# Exit
+
+To stop the program gracefully, you have to press in sequence: `Ctrl`+`Shift`+`C`.
