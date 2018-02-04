@@ -35,6 +35,7 @@ if __name__ == '__main__':
 
     if not Snippet.table_exists():
         Snippet.create_table()
+        Snippet.get_or_create(key='hw', value='Hello World!', freq=0)
 
     def check():
         global typed_chars
