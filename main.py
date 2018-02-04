@@ -5,7 +5,6 @@ import pyautogui
 import re
 
 location = './data.db'
-table_name = 'snippets'
 
 
 if __name__ == '__main__':
