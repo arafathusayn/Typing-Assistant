@@ -71,6 +71,9 @@ if __name__ == '__main__':
 
         try:
 
+            if prev_key == keyboard.Key.ctrl and key.char == 'c':
+                return False
+
             if key.char == 'c' and prev_key == keyboard.Key.shift_l \
                     and (prev_prev_key == keyboard.Key.ctrl_l or prev_prev_key == keyboard.Key.cmd_l):
                 return False
